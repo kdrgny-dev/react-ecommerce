@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Container, Typography, Button, Grid } from '@material-ui/core'
 import CartItem from './CartItem/CartItem'
 import useStyles from './styles'
@@ -9,7 +10,7 @@ const Cart = ({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
 
     const EmptyCart = () => (
         <Typography variant="subtitle1">
-            You have no items in your Panda Shop Cart, you can add some amazings items
+            You have no items in your Panda Shop Cart, <Link className={classes.link} to="/">start adding some</Link>!
         </Typography>
     )
 
@@ -32,7 +33,7 @@ const Cart = ({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
                     <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>
                         Empty Cart
                     </Button>
-                    <Button className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">
+                    <Button component={Link} to="/checkout" className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">
                         Check Out
                     </Button>
                 </div>
